@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <context id="default" targetRuntime="MyBatis3">
+        <property name="javaFileEncoding" value="UTF-8" />
+        <!-- 替换Example为Criteria -->
+        <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+            <property name="searchString" value="Example$" />
+            <property name="replaceString" value="Criteria" />
+        </plugin>
+        <!-- 表格对应Java bean类型实现java.io.Serializable接口，添加默认的serialVersionUID -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+            <property name="suppressJavaInterface " value="true" />
+        </plugin>
+        <!-- 表格对应Java bean类型增加toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!-- 增加分页支持 -->
+        <plugin type="com.freetmp.mbg.plugin.page.MySqlPaginationPlugin"/>
+        <!-- 生成分库分表的扫表语句，项目需要依赖lo-widgets-datasource -->
+		<!--<plugin type="cn.openlo.mbg.plugins.ShardingExamplePlugin" />-->
+        <!-- jdbc连接定义 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+            connectionURL="jdbc:mysql://localhost:3306/easyreport2?useUnicode=true&amp;characterEncoding=UTF-8"
+           userId="root" password="123456"/>
+        <!-- 强制数据库小数类型为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true" />
+        </javaTypeResolver>
+        <!-- 表格对应Java bean类型生成，结果为$TABLE_NAME$.java和$TABLE_NAME$Criteria.java -->
+        <javaModelGenerator targetPackage="com.easytoolsoft.easyreport.domain.dao.entity"
+            targetProject="./src/main/java/">
+            <property name="constructorBased" value="false" />
+            <!-- 指定Java bean公共父类 -->
+            <!--<property name="rootClass" value="cn.openlo.gear.dataobject.PersistentDTOSupport" />-->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- sql语句生成，结果为$TABLE_NAME$Mapper.xml -->
+        <sqlMapGenerator targetPackage="com.easytoolsoft.easyreport.domain.dao.sqlmap"
+            targetProject="./src/main/java/" />
+        <!-- 应用客户端生成，结果为$TABLE_NAME$Mapper.java -->
+        <javaClientGenerator targetPackage="com.easytoolsoft.easyreport.domain.dao.mapper"
+            targetProject="./src/main/java/" type="XMLMAPPER">
+            <!-- 指定客户端公共接口 -->
+           <!-- <property name="rootInterface" value="cn.openlo.dataobject.DAO" />-->
+        </javaClientGenerator>
+        <!-- 
+        <table schema="crp" tableName="mop_activity_info" />
+		<table schema="crp" tableName="mop_biz_conf" />
+		<table schema="crp" tableName="mop_prize_info" />
+		<table schema="crp" tableName="mop_prize_type" />
+		<table schema="crp" tableName="mop_um_prize" />
+		<table schema="crp" tableName="mop_user_um_channel_map" />
+		<table schema="crp" tableName="mop_user_wx" />
+		<table schema="crp" tableName="mop_firstdayfree" />
+		<table schema="crp" tableName="mop_mnconfig" />
+		<table schema="crp" tableName="mop_firstdayfree" />
+		<table schema="crp" tableName="mop_mnconfig" />
+		<table schema="crp" tableName="mop_coupon" />
+		 
+    	<table schema="fzuche" tableName="vm_carmodel_fee" />-->
+    	<!-- <table schema="fzuche" tableName="c_domain" />
+    	<table schema="fzuche" tableName="c_domain_values" /> -->
+    	<!-- <table schema="fzuche" tableName="pay_bank_names" />
+    	<table schema="fpay" tableName="protocol_partypayee" />
+    	<table schema="fpay" tableName="withhold_bill" />-->
+        <table schema="easyreport2" tableName="ezrpt_sys_event" />
+    </context>
+</generatorConfiguration>
