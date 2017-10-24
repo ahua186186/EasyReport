@@ -16,6 +16,7 @@ public class DateUtils {
      * @return 当前时间的yyyy-MM-dd格式字符串
      */
     public static String getNow() {
+
         return getNow("yyyy-MM-dd");
     }
 
