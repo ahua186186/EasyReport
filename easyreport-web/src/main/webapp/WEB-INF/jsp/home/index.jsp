@@ -26,9 +26,9 @@
     </div>
     <div region="south" class="footer">
         <div id="footer-left">
-            <div>EasyReport(v2.0)</div>
+            <div>联动云自动化配置报表平台(v1.0)</div>
         </div>
-        <div id="footer-right">Copyright © 2014-2016 easytoolsoft.com inc.</div>
+        <div id="footer-right">Copyright © 2014-2017 ldygo.com inc.</div>
     </div>
 </div>
 <!-- tabs右键菜单  -->
