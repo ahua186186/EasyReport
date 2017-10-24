@@ -15,9 +15,9 @@ Date: 2017-05-25 01:35:38
 
 SET FOREIGN_KEY_CHECKS=0;
 
-CREATE DATABASE IF NOT EXISTS easyreport2 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS easyreport21 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 
-use easyreport2;
+use easyreport21;
 
 -- ----------------------------
 -- Table structure for ezrpt_member_module
