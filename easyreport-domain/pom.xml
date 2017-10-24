@@ -93,7 +93,7 @@
     <build>
         <plugins>
             <plugin>
-                <!--        mvn mybatis-generator:generate    -->
+                <!--        mvn mybatis-generator:generate   add by shen guanghua (270847975@qq.com) -->
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>${version.mybatis-generator-maven-plugin}</version>
