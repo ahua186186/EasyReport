@@ -61,6 +61,7 @@ var TableReportMVC = {
                     });
                 },
                 success: function (result) {
+                    $.messager.progress("close");
                     if (!result.code) {
                         $('#table-report-htmltext-div').html(result.data.htmlTable);
                         TableReportMVC.Util.render(mode || TableReportMVC.Model.Mode.classic);
@@ -226,13 +227,13 @@ var TableReportMVC = {
                     var label = $(this).find('label').text().replace(':', '');
                     var val = $(this).find("input").attr("value");
                     if (!val) {
-                        val = $(this).find('.combo-text').val();
+                        val = $(this).find('.easyui-combobox').val();
                     }
                     html += '<tr><td><strong>' + label + '</strong></td><td>' + val + '</td></tr>';
                 }
                 else {
                     var label = $(this).find('label').text().replace(':', '');
-                    var val = $(this).find('.combo-text').val();
+                    var val = $(this).find('.easyui-combobox').val();
                     if (!val) {
                         val = $(this).find("input").attr("value");
                     }
