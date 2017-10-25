@@ -91,17 +91,23 @@ var TableReportMVC = {
             var data = $('#table-report-form').serializeObject();
             data["htmlText"] = htmlText;
 
-            $.messager.progress({
-                title: '请稍后...',
-                text: '报表正在生成中...',
-            });
             $.fileDownload(url, {
                 httpMethod: "POST",
-                data: data
-            }).done(function () {
-                $.messager.progress("close");
-            }).fail(function () {
-                $.messager.progress("close");
+                data: data,
+                prepareCallback:function(url){
+                    $.messager.progress({
+                        title: '请稍后...',
+                        text: '报表正在生成中...',
+                    });
+                },
+               successCallback:function(url){
+                    $.messager.progress("close");
+                   $.messager.alert("操作提示", "操作成功！");
+                },
+                failCallback: function (html, url) {
+                    $.messager.progress("close");
+                    $.messager.alert("操作提示", "操作失败！");
+                }
             });
             e.preventDefault();
         }
