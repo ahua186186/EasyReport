@@ -1,8 +1,12 @@
 <div xmlns:th="http://www.thymeleaf.org" id="chart-report-div" style="margin: 5px;">
     <form id="chart-report-form" method="post">
+
+        <!-- common form paramers start -->
         <input id="chart-report-id" type="hidden" name="id" th:value="${id}"/>
         <input id="chart-report-name" type="hidden" name="name" th:value="${name}"/>
         <input id="chart-report-uid" type="hidden" name="uid" th:value="${uid}"/>
+        <!-- common form paramers end -->
+
         <table class="designer-table" style="width: 100%;padding: 6px;">
             <tr>
                 <td style="text-align: left;"><span th:utext="${formHtmlText}"></span>
