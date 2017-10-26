@@ -10,6 +10,7 @@ import com.easytoolsoft.easyreport.engine.data.ColumnTreeNode;
 import com.easytoolsoft.easyreport.engine.data.ReportDataColumn;
 import com.easytoolsoft.easyreport.engine.data.ReportParameter;
 import com.easytoolsoft.easyreport.engine.data.ReportTable;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -88,7 +89,7 @@ public abstract class AbstractReportBuilder implements ReportBuilder {
 
         final int level = paths.length > 1 ? paths.length - 1 : 1;
         for (int i = 0; i < level; i++) {
-            this.tableRows.append(String.format("<td class=\"easyreport-fixed-column\">%s</td>", paths[i]));
+            this.tableRows.append(String.format("<td class=\"easyreport-fixed-column\">%s</td>", StringEscapeUtils.escapeHtml(paths[i])));
         }
         return null;
     }
@@ -140,7 +141,7 @@ public abstract class AbstractReportBuilder implements ReportBuilder {
                 final String rowspan = treeNode.getSpans() > 1 ? String.format(" rowspan=\"%s\"", treeNode.getSpans())
                     : "";
                 this.tableRows.append(
-                    String.format("<td class=\"easyreport-fixed-column\"%s>%s</td>", rowspan, treeNode.getValue()));
+                    String.format("<td class=\"easyreport-fixed-column\"%s>%s</td>", rowspan, StringEscapeUtils.escapeHtml(treeNode.getValue())));
             }
         }
         lastNodePaths = currNodePaths;
