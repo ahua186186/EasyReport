@@ -209,7 +209,7 @@ var TableReportMVC = {
             var html = '<table>';
             html += '<tr><td align="center" colspan="' + result.metaDataColumnCount + '"><h3>' + $('#table-report-name').text() + '</h3></td></tr>';
             html += '<tr><td align="right" colspan="' + result.metaDataColumnCount + '"><h3>导出时间:' + TableReportMVC.Util.getCurrentTime() + '</h3></td></tr>';
-            $('#table-report-form .j-item').each(function () {
+            /*$('#table-report-form .j-item').each(function () { //不需要导出导出条件
                 var type = $(this).attr('data-type');
                 if (type === 'date-range') {
                     var input = $(this).find('.combo-text');
@@ -239,7 +239,7 @@ var TableReportMVC = {
                     }
                     html += '<tr><td><strong>' + label + '</strong></td><td>' + val + '</td></tr>';
                 }
-            })
+            })*/
             html += '<tr></tr><tr></tr><tr></tr></table>';
             return html;
         },
