@@ -146,8 +146,8 @@ var TableReportMVC = {
             });
 
             var noRowSpan = !TableReportMVC.Util.hasRowSpan();
-            table.data('isSort', noRowSpan).fixScroll();
-
+            //table.data('isSort', noRowSpan).fixScroll();
+            table.data('isSort', noRowSpan);
             //如果表格中没有跨行rowspan(暂不支持跨行)
             if (noRowSpan) {
                 table.tablesorter({
