@@ -83,12 +83,13 @@ var ChartReportMVC = {
         show: function (id, chartType) {
             chartType = chartType || "line";
             var chartData = ChartReportMVC.Util.toChartData(chartType);
+            var reportName = ChartReportMVC.Model.metaData.reportName;
             var myChart = echarts.init(document.getElementById(id));
             myChart.clear();
             myChart.setOption({
                 title: {
                     //text: chartData.title
-                    text:""
+                    text:reportName
                 },
                 tooltip: {
                     trigger: 'axis'

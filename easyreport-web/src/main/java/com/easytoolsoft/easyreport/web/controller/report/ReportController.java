@@ -143,6 +143,7 @@ public class ReportController {
                 final Map<String, Object> formParameters = this.tableReportService.getFormParameters(
                     request.getParameterMap(), options.getDataRange());
                 final ReportDataSet reportDataSet = this.tableReportService.getReportDataSet(po, formParameters);
+                data.put("reportName", po.getName());
                 data.put("dimColumnMap", this.chartReportService.getDimColumnMap(reportDataSet));
                 data.put("dimColumns", this.chartReportService.getDimColumns(reportDataSet));
                 data.put("statColumns", this.chartReportService.getStatColumns(reportDataSet));
