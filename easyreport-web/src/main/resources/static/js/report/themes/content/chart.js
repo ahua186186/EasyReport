@@ -87,7 +87,8 @@ var ChartReportMVC = {
             myChart.clear();
             myChart.setOption({
                 title: {
-                    text: chartData.title
+                    //text: chartData.title
+                    text:""
                 },
                 tooltip: {
                     trigger: 'axis'
