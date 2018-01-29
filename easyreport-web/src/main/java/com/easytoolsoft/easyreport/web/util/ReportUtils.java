@@ -180,7 +180,7 @@ public class ReportUtils {
             response.setContentType("application/vnd.ms-excel; charset=utf-8");
             response.addCookie(new Cookie("fileDownload", "true"));
             response.setHeader("Set-Cookie", "fileDownload=true; path=/");
-            //out.write(new byte[]{(byte) 0xEF, (byte) 0xBB, (byte) 0xBF}); // 生成带bom的utf8文件
+            out.write(new byte[]{(byte) 0xEF, (byte) 0xBB, (byte) 0xBF}); // 生成带bom的utf8文件,没有这个可能部分文件乱码
             out.write(htmlText.getBytes());
             out.flush();
         } catch (final Exception ex) {
